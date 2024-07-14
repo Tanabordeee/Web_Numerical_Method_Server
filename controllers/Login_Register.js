@@ -29,3 +29,22 @@ exports.Register = async (req, res) => {
         return res.status(500).json({ "Message": "Internal server error" });
     }
 };
+
+exports.Login = async (req , res) => {
+    const { email , password } = req.body;
+    try{
+        const user = await prisma.user.findUnique({where: {email}});
+            if(user){
+                const isPasswordValid = await bcrypt.compare(password , user.password);
+                if(isPasswordValid){
+                    return res.status(200).json({"Message":"Successfully logged in"});
+                }else{
+                    return res.status(400).json({"Message":"your password is wrong"});
+                }
+            }else{
+                return res.status(400).json({"Message":"your email is wrong"});
+            }
+    }catch(err){
+        return res.status(500).json({ "Message": "Internal server error" });
+    }
+}

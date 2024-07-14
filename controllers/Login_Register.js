@@ -1,7 +1,8 @@
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcrypt');
 const prisma = new PrismaClient();
-
+const jwt = require("jsonwebtoken");
+const expressJwt = require("express-jwt");
 exports.Register = async (req, res) => {
     const { username, password, email } = req.body;
     try {
@@ -37,7 +38,8 @@ exports.Login = async (req , res) => {
             if(user){
                 const isPasswordValid = await bcrypt.compare(password , user.password);
                 if(isPasswordValid){
-                    return res.status(200).json({"Message":"Successfully logged in"});
+                    const token = jwt.sign({password} , process.env.JWT_SECRET , {expiresIn:"1d"})
+                    return res.status(200).json({"Message":"Successfully logged in" , "token":token});
                 }else{
                     return res.status(400).json({"Message":"your password is wrong"});
                 }
@@ -48,3 +50,8 @@ exports.Login = async (req , res) => {
         return res.status(500).json({ "Message": "Internal server error" });
     }
 }
+exports.requireLogin = expressJwt.expressjwt({
+    secret : process.env.JWT_SECRET,
+    algorithms:["HS256"],
+    userProperty:"auth"
+})

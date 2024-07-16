@@ -33,5 +33,5 @@ exports.FalsePosition_Method = async (req, res) => {
             break;
         }
     }
-    res.json({"result : ":X1})
+    res.json({"result":X1})
 }

@@ -10,6 +10,9 @@ exports.OnePoint_Iterration = async (req , res ) =>{
     let x = parseInt(guess);
     let old_x = 0;
     let new_x = 0;
+    if(x == 0){
+        x = 1;
+    }
     while(true){
         old_x = x;
         x = calculate(x);

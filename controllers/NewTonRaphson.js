@@ -13,7 +13,7 @@ function calculate_diff(x){
     return derivative.evaluate({x : x});
 }
 
-let x = parseInt(guess);
+let x = parseFloat(guess);
 let x_new = 0;
 let x_old = 0;
 let i = 0;

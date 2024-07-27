@@ -8,6 +8,7 @@ const {AddEquation} = require("../controllers/AddEquation");
 const {OnePoint_Iterration} = require("../controllers/OnePoint_Iterration");
 const {GetEquation} = require("../controllers/GetEquation");
 const {NewTonRaphson} = require("../controllers/NewTonRaphson");
+const {Secant_Method} = require("../controllers/Secant_Method")
 router.post("/Register" , Register);
 router.post("/Login" , Login);
 router.use(requireLogin);
@@ -18,4 +19,5 @@ router.post("/AddEquation" , AddEquation);
 router.post("/OnePoint" , OnePoint_Iterration);
 router.get("/Getequation", GetEquation);
 router.post("/NewTonRaphson", NewTonRaphson);
+router.post("/Secant_Method", Secant_Method);
 module.exports = router;

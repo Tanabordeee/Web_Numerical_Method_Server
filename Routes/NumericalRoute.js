@@ -7,6 +7,7 @@ const {Register , Login , requireLogin} = require("../controllers/Login_Register
 const {AddEquation} = require("../controllers/AddEquation");
 const {OnePoint_Iterration} = require("../controllers/OnePoint_Iterration");
 const {GetEquation} = require("../controllers/GetEquation");
+const {NewTonRaphson} = require("../controllers/NewTonRaphson");
 router.post("/Register" , Register);
 router.post("/Login" , Login);
 router.use(requireLogin);
@@ -16,4 +17,5 @@ router.post("/FalsePosition" , FalsePosition_Method);
 router.post("/AddEquation" , AddEquation);
 router.post("/OnePoint" , OnePoint_Iterration);
 router.get("/Getequation", GetEquation);
+router.post("/NewTonRaphson", NewTonRaphson);
 module.exports = router;

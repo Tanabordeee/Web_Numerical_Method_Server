@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "prisma generate && npm run build:server",
-    "build:server": "node server.js",
-    "prisma": "prisma"
+    "postinstall": "prisma generate",
+    "build": "npm run prisma && npm run build:server",
+    "build:server": "node server.js"
   },
   "keywords": [],
   "author": "",

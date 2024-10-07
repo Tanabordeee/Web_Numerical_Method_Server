@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npx prisma generate",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "build": "npm run prisma && npm run build:server",
     "prisma": "prisma",
     "build:server": "node server.js"

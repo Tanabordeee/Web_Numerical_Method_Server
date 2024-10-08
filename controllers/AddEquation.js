@@ -1,12 +1,12 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require('../lib/prisma');
 
-exports.AddEquation = async(req ,res) => {
+// AddEquation function
+exports.AddEquation = async(req, res) => {
     console.log("Initializing Prisma Client...");
     try {
         const equation_admin = await prisma.Question.create({
             data: {
-                equation : req.body.equation
+                equation: req.body.equation
             }
         });
         console.log("Equation created successfully");
@@ -15,4 +15,4 @@ exports.AddEquation = async(req ,res) => {
         console.error("Error in Prisma Client initialization:", err);
         return res.status(400).json({ "Message": err.message });
     }
-}
+};

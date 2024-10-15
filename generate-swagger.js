@@ -9,7 +9,7 @@ const config = {
         description: 'Detailed API Documentation',
     },
     tags: [],
-    host: 'localhost:3000',
+    host: 'https://web-numerical-method-server.vercel.app',
     schemes: ['http', 'https'],
 };
 

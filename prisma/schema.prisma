@@ -13,13 +13,53 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Question{
-  id        Int      @id @default(autoincrement())
-  equation  String    @db.VarChar(255)
+model RootQuestion {
+  id       Int    @id @default(autoincrement())
+  equation String
+  XL       Float?
+  XR       Float?
+  Gval     Float?
+  SGval    Float?
 }
 
 model LinearQuestion {
-  id      Int    @id @default(autoincrement())
-  matrixA Json   
-  matrixB Json 
+  id      Int   @id @default(autoincrement())
+  matrixA Json
+  matrixB Json
+  matrixX Json?
+}
+
+model InterpolationQuestion {
+  id      Int   @id @default(autoincrement())
+  matrixX Json
+  matrixY Json
+  size Int
+  xValue  Float
+}
+
+model ExtrapolationQuestion {
+  id      Int   @id @default(autoincrement())
+  size    Int?
+  xValue  Float?
+  mOrder  Int?
+  kOrder  Int?
+  matrixX Json?
+  matrixY Json?
+  DataX Json?
+  ArrayX Json?
+}
+
+model IntegrationQuestion {
+  id       Int    @id @default(autoincrement())
+  low      Int
+  upper    Int
+  n        Int?
+  equation String
+}
+
+model DifferentiationQuestion {
+  id       Int    @id @default(autoincrement())
+  equation String
+  x        Float
+  h        Float
 }

@@ -5,14 +5,53 @@
     "description": "Detailed API Documentation",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
-  "basePath": "/api",
+  "host": "https://web-numerical-method-server.vercel.app",
+  "basePath": "/api/",
   "schemes": [
     "http",
     "https"
   ],
   "paths": {
-    "/Getequation": {
+    "/AddEquation": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "equation": {
+                  "example": "any"
+                },
+                "XL": {
+                  "example": "any"
+                },
+                "XR": {
+                  "example": "any"
+                },
+                "Gval": {
+                  "example": "any"
+                },
+                "SGval": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/GetLinearEquation": {
       "get": {
         "description": "",
         "responses": {
@@ -25,7 +64,7 @@
         }
       }
     },
-    "/AddEquation": {
+    "/AddLinearEquation": {
       "post": {
         "description": "",
         "parameters": [
@@ -35,6 +74,132 @@
             "schema": {
               "type": "object",
               "properties": {
+                "matrixA": {
+                  "example": "any"
+                },
+                "matrixB": {
+                  "example": "any"
+                },
+                "matrixX": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/AddInterpolation": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "example": "any"
+                },
+                "matrixX": {
+                  "example": "any"
+                },
+                "matrixY": {
+                  "example": "any"
+                },
+                "xValue": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/AddExtrapolation": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "example": "any"
+                },
+                "xValue": {
+                  "example": "any"
+                },
+                "mOrder": {
+                  "example": "any"
+                },
+                "kOrder": {
+                  "example": "any"
+                },
+                "matrixX": {
+                  "example": "any"
+                },
+                "matrixY": {
+                  "example": "any"
+                },
+                "DataX": {
+                  "example": "any"
+                },
+                "ArrayX": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/AddIntegration": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "low": {
+                  "example": "any"
+                },
+                "upper": {
+                  "example": "any"
+                },
+                "n": {
+                  "example": "any"
+                },
                 "equation": {
                   "example": "any"
                 }
@@ -48,6 +213,104 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/AddDifferentiation": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "equation": {
+                  "example": "any"
+                },
+                "x": {
+                  "example": "any"
+                },
+                "h": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/GetInterpolation": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/GetExtrapolation": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/GetIntegration": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/GetDifferentiation": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/GetRootEquation": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }

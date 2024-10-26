@@ -2,13 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "prisma generate",
-    "dev": "nodemon server.js",
+    "postinstall": "prisma generate --schema=./prisma/schema.prisma",
+    "dev": "nodemon index.js",
     "build": "prisma generate",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

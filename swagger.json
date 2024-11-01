@@ -5,7 +5,7 @@
     "description": "Detailed API Documentation",
     "version": "1.0.0"
   },
-  "host": "https://web-numerical-method-server.vercel.app",
+  "host": "web-numerical-method-server.vercel.app",
   "basePath": "/api/",
   "schemes": [
     "http",

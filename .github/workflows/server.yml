@@ -20,7 +20,7 @@ job:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Create , env file
-      run: 
+      run: |
         echo "DATABASE_URL=postgresql://myuser:cTcncmnFr10DA33WcAQNFzwzf7909r5X@dpg-cs1qc5dds78s73b8q060-a.singapore-postgres.render.com/mydatabase_7r1h" >> .env
 
       -name: Build and push Docker image
@@ -29,4 +29,4 @@ job:
         context: .
         file: ./Dockerfile
         push: true
-        tags: tanabordee/numerical-client:latest
+        tags: tanabordee/numerical-server:latest

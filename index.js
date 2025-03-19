@@ -25,7 +25,7 @@ async function applyMigration() {
 applyMigration();
 
 app.use(express.json());
-app.use(cors({ origin: 'https://numerical-method-project.vercel.app/', credentials: true }));
+app.use(cors({ origin: 'https://numerical-method-project.vercel.app', credentials: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));

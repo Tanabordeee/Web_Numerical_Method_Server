@@ -11,7 +11,7 @@ const swaggerUiDist = require('swagger-ui-dist');
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: '*', credentials: true }));
+app.use(cors({ origin: 'https://numerical-method-project.vercel.app/', credentials: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
